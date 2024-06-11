@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const RegisterPage = () => {
     return (
-        <div className='flex h-screen'>
+        <div className='flex h-screen bg-[#F5F5F5]'>
             <div className='flex w-7/12 justify-center items-center'>
                 <div className='w-7/12 flex flex-col gap-3'>
                     <h1 className=' font-semibold text-3xl mb-8 tracking-wider'>Get Started Now</h1>
@@ -10,20 +10,20 @@ const RegisterPage = () => {
                         <div className='flex flex-col gap-1'>
                             <label className='font-semibold'>Name</label>
                             <input placeholder='Your Name'
-                                className='font-medium text-sm
-                                border px-2 py-1 outline-none border-gray-300 rounded-xl placeholder:text-sm placeholder:text-gray-300' />
+                                className='font-medium text-sm bg-[#F5F5F5]
+                                border px-2 py-1 outline-none border-gray-300 rounded-lg placeholder:text-sm placeholder:text-gray-300' />
                         </div>
                         <div className='flex flex-col gap-1'>
                             <label className='font-semibold'>Email Address</label>
                             <input placeholder='Enter your email'
-                                className='font-medium text-sm
-                                border px-2 py-1 outline-none border-gray-300 rounded-xl placeholder:text-sm placeholder:text-gray-300' />
+                                className='font-medium text-sm bg-[#F5F5F5]
+                                border px-2 py-1 outline-none border-gray-300 rounded-lg placeholder:text-sm placeholder:text-gray-300' />
                         </div>
                         <div className='flex flex-col gap-1'>
                             <label className='font-semibold'>Password</label>
                             <input placeholder='Name'
-                                className='font-medium text-sm
-                                border px-2 py-1 outline-none border-gray-300 rounded-xl placeholder:text-sm placeholder:text-gray-300' />
+                                className='font-medium text-sm bg-[#F5F5F5]
+                                border px-2 py-1 outline-none border-gray-300 rounded-lg placeholder:text-sm placeholder:text-gray-300' />
                         </div>
                     </div>
                     <div className='flex gap-3 text-sm'>
