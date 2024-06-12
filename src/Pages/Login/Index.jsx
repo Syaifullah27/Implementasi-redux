@@ -46,7 +46,7 @@ const LoginPage = () => {
             <div className='flex w-7/12 justify-center items-center'>
                 <div className='w-7/12 flex flex-col gap-3'>
                     <div className="mb-10">
-                        <h1 className='font-semibold text-3xl  tracking-wider'>Welcome Back!</h1>
+                        <h1 className='font-semibold text-3xl'>Welcome Back!</h1>
                         <p className='font-medium'>Enter your credentials to access your account</p>
                     </div>
                     <div className="flex flex-col gap-6">
@@ -76,7 +76,7 @@ const LoginPage = () => {
                     </div>
                     <button
                         onClick={handleSubmit}
-                        className='mt-4 px-2 py-[5px] rounded-xl bg-[#3A5B22] text-white font-semibold text-base tracking-wide'>Login</button>
+                        className='mt-4 px-2 py-[5px] rounded-xl bg-[#3A5B22] text-white font-semibold text-base tracking-wide hover:bg-[#2F4C1B]'>Login</button>
 
                     <div className="mt-4 flex gap-2 justify-center items-center">
                         <span className="w-full bg-gray-200 h-[1px]"></span>

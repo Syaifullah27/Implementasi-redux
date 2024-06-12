@@ -5,7 +5,7 @@ const RegisterPage = () => {
         <div className='flex h-screen bg-[#F5F5F5]'>
             <div className='flex w-7/12 justify-center items-center'>
                 <div className='w-7/12 flex flex-col gap-3'>
-                    <h1 className=' font-semibold text-3xl mb-8 tracking-wider'>Get Started Now</h1>
+                    <h1 className=' font-semibold text-3xl mb-8'>Get Started Now</h1>
                     <div className="flex flex-col gap-6">
                         <div className='flex flex-col gap-1'>
                             <label className='font-semibold'>Name</label>
@@ -30,7 +30,7 @@ const RegisterPage = () => {
                         <input type="checkbox" />
                         <p>I agree with <a href="" className='underline'>terms & policy</a></p>
                     </div>
-                    <button className='mt-4 px-2 py-1 rounded-xl bg-[#3A5B22] text-white font-semibold tracking-wide'>SignUp</button>
+                    <button className='mt-4 px-2 py-1 rounded-xl bg-[#3A5B22] text-white font-semibold tracking-wide hover:bg-[#2F4C1B]'>SignUp</button>
 
                     <div className="mt-4 flex gap-2 justify-center items-center">
                         <span className="w-full bg-gray-200 h-[1px]"></span>
