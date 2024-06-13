@@ -2,13 +2,14 @@ import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
-
+import { jwtDecode } from "jwt-decode";
 
 import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 
-const LoginPage = () => {
+// eslint-disable-next-line react/prop-types
+const LoginPage = ({ userName, setUserName}) => {
 
     const [userEmail, setUserEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -64,21 +65,24 @@ const LoginPage = () => {
         try {
             const res = await axios.post("https://api.mudoapi.tech/login", payload)
             const token = res?.data?.data?.token
-            console.log(res)
-            // console.log(token);
+                console.log(res)
+                console.log(token);
             setToken(token)
+            const decoded = jwtDecode(token)
+                console.log(decoded.userData?.username);
+            setUserName(decoded.userData?.username)
+                console.log(userName);
             localStorage.setItem("access_token", token)
             setErrorLogin(null)
-
             setTimeout(() => {
                 navigate("/menu")
             }, 500)
 
         } catch (error) {
-            console.log(error?.response);
+                console.log(error?.response);
             setErrorLogin(error?.response?.data?.message)
             setToken(null)
-            console.log(errorLogin);
+                console.log(errorLogin);
         }
     }
 
@@ -179,7 +183,7 @@ const LoginPage = () => {
                         </Link>
                     </div>
 
-                    <p className='mt-4 text-center font-medium'>Don't have an account? <Link to="/register" className='text-blue-700'>Sign Up</Link></p>
+                    <p className='mt-4 text-center font-medium'>Don&#39;t have an account? <Link to="/register" className='text-blue-700'>Sign Up</Link></p>
 
 
                 </div>

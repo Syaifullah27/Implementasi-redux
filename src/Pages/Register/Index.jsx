@@ -13,7 +13,7 @@ const RegisterPage = () => {
     const [userName, setUserName] = useState("")
     const [userEmail, setUserEmail] = useState("")
     const [userPassword, setUserPassword] = useState("")
-
+    const [errorLogin, setErrorLogin] = useState(null)
     const [isRegister, setIsRegister] = useState(null)
 
 
@@ -63,10 +63,12 @@ const RegisterPage = () => {
             console.log(regis);
             setIsRegister(regis)
             console.log(res);
+            setErrorLogin(null)
             setTimeout(() => {
                 navigate("/login")
             }, 2000)
         } catch (error) {
+            setErrorLogin(error?.response?.data?.message)
             console.log(error);
         }
     }
@@ -80,6 +82,16 @@ const RegisterPage = () => {
         }
     }
 
+    const handleMessege = () => {
+        if(errorLogin) {
+            return <p className="text-red-500">{errorLogin}</p>
+        }
+        else if(isRegister) {
+            return <p className="text-green-500">Login Success</p>
+        }
+        return null
+    }
+
 
     return (
         <div className='flex h-screen bg-[#F5F5F5]'>
@@ -88,7 +100,7 @@ const RegisterPage = () => {
                     <h1 className=' font-semibold text-3xl mb-8'>Get Started Now</h1>
                     <div className="flex flex-col gap-6">
 
-                        {isRegister ? <p className="text-green-500">{isRegister}</p> : null}
+                        {handleMessege()}
 
                         <div className='flex flex-col gap-1'>
                             <label className='font-semibold'>Name</label>

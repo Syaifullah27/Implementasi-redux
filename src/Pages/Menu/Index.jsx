@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom"
 import Navbar from "../../components/Navbar/Index"
 
-const MenuPage = () => {
+const MenuPage = ({ userName}) => {
 
 
     
     return (
         <div className="h-screen bg-[#333333]">
-            <Navbar />
+            <Navbar userName={userName}/>
 
             <div className="w-11/12 mx-auto">
                 <Link to="/" >
