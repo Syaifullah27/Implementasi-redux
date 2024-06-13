@@ -3,6 +3,11 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 
+
+import { Icon } from 'react-icons-kit';
+import { eyeOff } from 'react-icons-kit/feather/eyeOff';
+import { eye } from 'react-icons-kit/feather/eye';
+
 const LoginPage = () => {
 
     const [userEmail, setUserEmail] = useState("")
@@ -12,6 +17,26 @@ const LoginPage = () => {
 
 
     const navigate = useNavigate()
+
+
+    const [type, setType] = useState('password');
+    const [icon, setIcon] = useState(eyeOff);
+
+    const handleToggle = () => {
+        if (type === 'password') {
+            setIcon(eye);
+            setType('text')
+        } else {
+            setIcon(eyeOff)
+            setType('password')
+        }
+    }
+
+
+
+
+
+
 
     const handleUserEmail = (e) => {
         setUserEmail(e.target.value)
@@ -97,6 +122,8 @@ const LoginPage = () => {
                         <div className='flex flex-col gap-1'>
                             <label className='font-semibold'>Email Address</label>
                             <input
+                                type="email"
+                                value={userEmail}
                                 onChange={handleUserEmail}
                                 placeholder='Enter your email'
                                 className='font-medium text-sm bg-[#F5F5F5]
@@ -108,10 +135,17 @@ const LoginPage = () => {
                                 <a href="" className="text-blue-800 text-[13px] font-medium">forgot password</a>
                             </div>
                             <input
+                                type={type}
+                                name="password"
+                                value={password}
                                 onChange={handlePassword}
-                                placeholder="Name"
+                                placeholder='Enter your password'
                                 className='font-medium text-sm bg-[#F5F5F5]
-                                border px-2 py-1 outline-none border-gray-300 rounded-lg placeholder:text-sm placeholder:text-gray-300' />
+                                border px-2 py-2 outline-none border-gray-300 rounded-lg placeholder:text-sm placeholder:text-gray-300'
+                                autoComplete="current-password" />
+                            <span className=" flex justify-end items-center" onClick={handleToggle}>
+                                <Icon className="absolute mr-10 mb-11 text-gray-500" icon={icon} size={20} />
+                            </span>
                         </div>
                     </div>
                     <div className='flex gap-3 text-sm'>

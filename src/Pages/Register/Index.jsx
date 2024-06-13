@@ -3,6 +3,10 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 
+import { Icon } from 'react-icons-kit';
+import { eyeOff } from 'react-icons-kit/feather/eyeOff';
+import { eye } from 'react-icons-kit/feather/eye';
+
 const RegisterPage = () => {
     const navigate = useNavigate()
 
@@ -11,6 +15,22 @@ const RegisterPage = () => {
     const [userPassword, setUserPassword] = useState("")
 
     const [isRegister, setIsRegister] = useState(null)
+
+
+
+    const [type, setType] = useState('password');
+    const [icon, setIcon] = useState(eyeOff);
+
+    const handleToggle = () => {
+        if (type === 'password') {
+            setIcon(eye);
+            setType('text')
+        } else {
+            setIcon(eyeOff)
+            setType('password')
+        }
+    }
+
 
 
     const handleNameUser = (e) => {
@@ -34,7 +54,7 @@ const RegisterPage = () => {
             name: userName,
             userName: userEmail,
             password: userPassword,
-            roleId : 1
+            roleId: 1
         }
 
         try {
@@ -44,21 +64,21 @@ const RegisterPage = () => {
             setIsRegister(regis)
             console.log(res);
             setTimeout(() => {
-                navigate("/login") 
-            },2000)
+                navigate("/login")
+            }, 2000)
         } catch (error) {
             console.log(error);
+        }
     }
-}
 
 
-const handleValidateInput = () => {
-    if (!userEmail.length || !userPassword.length || !userName.length) {
-        return true
-    } else {
-        return false
-    }         
-}
+    const handleValidateInput = () => {
+        if (!userEmail.length || !userPassword.length || !userName.length) {
+            return true
+        } else {
+            return false
+        }
+    }
 
 
     return (
@@ -68,33 +88,42 @@ const handleValidateInput = () => {
                     <h1 className=' font-semibold text-3xl mb-8'>Get Started Now</h1>
                     <div className="flex flex-col gap-6">
 
-    {isRegister ? <p className="text-green-500">{isRegister}</p> : null}
+                        {isRegister ? <p className="text-green-500">{isRegister}</p> : null}
 
                         <div className='flex flex-col gap-1'>
                             <label className='font-semibold'>Name</label>
-                            <input 
+                            <input
+                                type="text"
                                 onChange={handleNameUser}
                                 placeholder='Your Name'
                                 className='font-medium text-sm bg-[#F5F5F5]
-                                border px-2 py-1 outline-none border-gray-300 rounded-lg placeholder:text-sm placeholder:text-gray-300' />
+                                border px-2 py-2 outline-none border-gray-300 rounded-lg placeholder:text-sm placeholder:text-gray-300' />
                         </div>
 
                         <div className='flex flex-col gap-1'>
                             <label className='font-semibold'>Email Address</label>
-                            <input 
+                            <input
+                                type="email"
                                 onChange={handleEmailUser}
                                 placeholder='Enter your email'
                                 className='font-medium text-sm bg-[#F5F5F5]
-                                border px-2 py-1 outline-none border-gray-300 rounded-lg placeholder:text-sm placeholder:text-gray-300' />
+                                border px-2 py-2 outline-none border-gray-300 rounded-lg placeholder:text-sm placeholder:text-gray-300' />
                         </div>
 
                         <div className='flex flex-col gap-1'>
                             <label className='font-semibold'>Password</label>
-                            <input 
+                            <input
+                                type={type}
+                                name="password"
+                                value={userPassword}
                                 onChange={handlePasswordUser}
-                                placeholder='Name'
+                                placeholder='Enter your password'
                                 className='font-medium text-sm bg-[#F5F5F5]
-                                border px-2 py-1 outline-none border-gray-300 rounded-lg placeholder:text-sm placeholder:text-gray-300' />
+                                border px-2 py-2 outline-none border-gray-300 rounded-lg placeholder:text-sm placeholder:text-gray-300'
+                                autoComplete="current-password" />
+                            <span className=" flex justify-end items-center" onClick={handleToggle}>
+                                <Icon className="absolute mr-10 mb-11 text-gray-500" icon={icon} size={20} />
+                            </span>
                         </div>
 
                     </div>
@@ -102,10 +131,10 @@ const handleValidateInput = () => {
                         <input type="checkbox" />
                         <p>I agree with <a href="" className='underline'>terms & policy</a></p>
                     </div>
-                    <button 
-                    onClick={handleSubmit}
-                    disabled={handleValidateInput()}
-                    className='mt-4 px-2 py-1 rounded-xl bg-[#3A5B22] text-white font-semibold tracking-wide hover:bg-[#2F4C1B]'>SignUp</button>
+                    <button
+                        onClick={handleSubmit}
+                        disabled={handleValidateInput()}
+                        className='mt-4 px-2 py-1 rounded-xl bg-[#3A5B22] text-white font-semibold tracking-wide hover:bg-[#2F4C1B]'>SignUp</button>
 
                     <div className="mt-4 flex gap-2 justify-center items-center">
                         <span className="w-full bg-gray-200 h-[1px]"></span>
