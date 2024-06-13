@@ -1,13 +1,28 @@
 import { Link } from "react-router-dom"
 import Navbar from "../../components/Navbar/Index"
+import { jwtDecode } from "jwt-decode";
 
-const MenuPage = ({ userName}) => {
+// eslint-disable-next-line react/prop-types
+const MenuPage = () => {
 
+
+    const token = localStorage.getItem("access_token")
+
+    const decoded = jwtDecode(token)
+
+    console.log(decoded)
+
+
+
+    const handleLogout = () => {
+        localStorage.removeItem("access_token")
+        window.location.href = "/login"
+    }
 
     
     return (
         <div className="h-screen bg-[#333333]">
-            <Navbar userName={userName}/>
+            <Navbar userName={decoded.userData.username} handleLogout={handleLogout}/>
 
             <div className="w-11/12 mx-auto">
                 <Link to="/" >

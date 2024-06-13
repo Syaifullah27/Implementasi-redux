@@ -2,16 +2,16 @@ import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
-import { jwtDecode } from "jwt-decode";
+
 
 import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 
 // eslint-disable-next-line react/prop-types
-const LoginPage = ({ userName, setUserName}) => {
+const LoginPage = () => {
 
-    const [userEmail, setUserEmail] = useState("")
+    const [userName, setuUerName] = useState("")
     const [password, setPassword] = useState("")
     const [token, setToken] = useState(null)
     const [errorLogin, setErrorLogin] = useState(null)
@@ -39,8 +39,8 @@ const LoginPage = ({ userName, setUserName}) => {
 
 
 
-    const handleUserEmail = (e) => {
-        setUserEmail(e.target.value)
+    const handleUserName = (e) => {
+        setuUerName(e.target.value)
     }
 
     const handlePassword = (e) => {
@@ -50,7 +50,7 @@ const LoginPage = ({ userName, setUserName}) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const payload = {
-            username: userEmail,
+            username: userName,
             password: password
         }
 
@@ -68,10 +68,6 @@ const LoginPage = ({ userName, setUserName}) => {
                 console.log(res)
                 console.log(token);
             setToken(token)
-            const decoded = jwtDecode(token)
-                console.log(decoded.userData?.username);
-            setUserName(decoded.userData?.username)
-                console.log(userName);
             localStorage.setItem("access_token", token)
             setErrorLogin(null)
             setTimeout(() => {
@@ -87,7 +83,7 @@ const LoginPage = ({ userName, setUserName}) => {
     }
 
     const handleValidateInput = () => {
-            if (!userEmail.length || !password.length) {
+            if (!userName.length || !password.length) {
                 return true
             } else {
                 return false
@@ -124,11 +120,11 @@ const LoginPage = ({ userName, setUserName}) => {
 
                     <div className="flex flex-col gap-6">
                         <div className='flex flex-col gap-1'>
-                            <label className='font-semibold'>Email Address</label>
+                            <label className='font-semibold'>Username</label>
                             <input
                                 type="email"
-                                value={userEmail}
-                                onChange={handleUserEmail}
+                                value={userName}
+                                onChange={handleUserName}
                                 placeholder='Enter your email'
                                 className='font-medium text-sm bg-[#F5F5F5]
                                 border px-2 py-1 outline-none border-gray-300 rounded-lg placeholder:text-sm placeholder:text-gray-300' />

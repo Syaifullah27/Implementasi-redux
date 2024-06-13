@@ -51,8 +51,8 @@ const RegisterPage = () => {
 
     const handleSubmit = async () => {
         const payload = {
-            name: userName,
-            userName: userEmail,
+            name: userEmail,
+            userName: userName,
             password: userPassword,
             roleId: 1
         }
@@ -103,7 +103,7 @@ const RegisterPage = () => {
                         {handleMessege()}
 
                         <div className='flex flex-col gap-1'>
-                            <label className='font-semibold'>Name</label>
+                            <label className='font-semibold'>Userame</label>
                             <input
                                 type="text"
                                 onChange={handleNameUser}
