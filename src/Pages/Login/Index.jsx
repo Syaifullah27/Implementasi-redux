@@ -1,11 +1,17 @@
 import axios from "axios"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 
 const LoginPage = () => {
 
     const [userEmail, setUserEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [token, setToken] = useState(null)
+    const [errorLogin, setErrorLogin] = useState(null)
+
+
+    const navigate = useNavigate()
 
     const handleUserEmail = (e) => {
         setUserEmail(e.target.value)
@@ -32,12 +38,44 @@ const LoginPage = () => {
 
         try {
             const res = await axios.post("https://api.mudoapi.tech/login", payload)
-            console.log(res);
+            const token = res?.data?.data?.token
+            console.log(res)
+            // console.log(token);
+            setToken(token)
+            localStorage.setItem("access_token", token)
+            setErrorLogin(null)
+
+            setTimeout(() => {
+                navigate("/menu")
+            }, 500)
+
         } catch (error) {
             console.log(error?.response);
+            setErrorLogin(error?.response?.data?.message)
+            setToken(null)
+            console.log(errorLogin);
         }
-
     }
+
+    const handleValidateInput = () => {
+            if (!userEmail.length || !password.length) {
+                return true
+            } else {
+                return false
+            }         
+    }
+
+
+    const handleMessege = () => {
+        if(errorLogin) {
+            return <p className="text-red-500">{errorLogin}</p>
+        }
+        else if(token) {
+            return <p className="text-green-500">Login Success</p>
+        }
+        return null
+    }
+    
 
     // console.log(userEmail, password);
 
@@ -49,6 +87,12 @@ const LoginPage = () => {
                         <h1 className='font-semibold text-3xl'>Welcome Back!</h1>
                         <p className='font-medium'>Enter your credentials to access your account</p>
                     </div>
+                    
+            {
+                handleMessege()
+            }
+
+
                     <div className="flex flex-col gap-6">
                         <div className='flex flex-col gap-1'>
                             <label className='font-semibold'>Email Address</label>
@@ -75,6 +119,7 @@ const LoginPage = () => {
                         <p>remember me for 30 days</p>
                     </div>
                     <button
+                        disabled={handleValidateInput()}
                         onClick={handleSubmit}
                         className='mt-4 px-2 py-[5px] rounded-xl bg-[#3A5B22] text-white font-semibold text-base tracking-wide hover:bg-[#2F4C1B]'>Login</button>
 

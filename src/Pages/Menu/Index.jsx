@@ -2,14 +2,19 @@ import { Link } from "react-router-dom"
 import Navbar from "../../components/Navbar/Index"
 
 const MenuPage = () => {
+
+
+    
     return (
         <div className="h-screen bg-[#333333]">
             <Navbar />
 
-            <Link to="/">
-                <button className="px-4 py-2 text-xl font-medium underline border-none text-[#f5f5f5] hover:text-[#00ff95] transition-all duration-500 ease-in-out"
-                > Back To Home</button>
-            </Link>
+            <div className="w-11/12 mx-auto">
+                <Link to="/" >
+                    <button className=" py-2 text-xl font-medium underline border-none text-[#f5f5f5] hover:text-[#00ff95] transition-all duration-500 ease-in-out"
+                    > Back To Home</button>
+                </Link>
+            </div>
 
             <div className="w-9/12 mx-auto">
                 <div className="mt-4 flex gap-2 justify-center items-center ">
@@ -20,7 +25,12 @@ const MenuPage = () => {
             </div>
 
 
-            
+            <div className="w-11/12 mx-auto">
+                <div className="bg-[#f5f5f5] p-4 w-[210px] rounded-xl shadow-slate-950] shadow-2xl">
+                    <img src="kaiden_2.jpeg" alt="" width={200} className=" h-72 rounded-xl"/>
+                    <h2 className="text-center font-medium text-xl pt-2">Eleceed</h2>
+                </div>
+            </div>
 
 
 
