@@ -187,3 +187,154 @@
 //     color: #00ff95;
 // }
 
+
+
+
+
+.navbar-wrapper {
+    /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); */
+    background-color:#ffcb10;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+}
+
+.navbar {
+    padding-top: 20px;
+    padding-bottom: 5px;
+    width:  91.666667%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 25px;
+}
+
+.username {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-username {
+    font-size: 25px;
+    font-weight: 500;
+    color: #333333;
+}
+
+/*hamburger bar*/
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 25px;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 42px;
+    height: 28px;
+    left: -7px;
+    top: -2px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.menu-toggle span {
+    display: block;
+    Width: 28px;
+    height: 4px;
+    background-color: #333333;
+    border-radius: 3px;
+    margin-right: 5px;
+
+
+}
+
+
+/*------hamburger menu animation--------*/
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+    transition: all .4s ease;
+}
+
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+    transition: all .4s ease;
+}
+
+.menu-toggle span:nth-child(3) {
+    transition: all .4s ease;
+
+}
+
+
+.menu-toggle input:checked~span:nth-child(2) {
+    transform: translate(-2px, 1px) rotate(45deg);
+}
+
+.menu-toggle input:checked~span:nth-child(4) {
+    Transform: rotate(-45deg) translate(-1px, -2px)
+}
+
+.menu-toggle input:checked~span:nth-child(3) {
+    Transform: scale(0)
+}
+
+
+
+/*--------Responsive breakpoint----------*/
+
+
+@media (max-width:765px) {
+
+
+    .navbar {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .navbar ul.active {
+        right: 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+        color:#333333;
+    }
+
+    .navbar ul {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        top: 0px;
+        right: -100%;
+        width: 13rem;
+        height: 100vh;
+        align-items: start;
+        justify-content: start;
+        padding-top: 55px;
+        gap: 20px;
+        /* justify-content: space-evenly; */
+        background-color: #f5f5f5;
+        transition: .5s all ease;
+    }
+
+    .username {
+        margin-left: 40px;
+        margin-bottom: 20px;
+        // border: 1px solid red;
+        flex-direction: column-reverse;
+    }
+
+}
+
