@@ -1,25 +1,15 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+// import { useRoutes } from 'react-router-dom'
 import './App.css'
-import HomePage from './Home'
-import RegisterPage from './Pages/Register/Index'
-import LoginPage from './Pages/Login/Index'
-import MenuPage from './Pages/Menu/Index'
+import { routeList } from './routes/routeList'
+import { RouterProvider } from 'react-router-dom'
 
 const App = () => {
+  // let element = useRoutes(routeList)
 
+  // return element
 
-  return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/menu" element={<MenuPage />} />
-        </Routes>
-      </BrowserRouter>
-    </>
-  )
+  return <RouterProvider router={routeList} />
+
 }
 
 export default App
