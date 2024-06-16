@@ -2,6 +2,20 @@
     animation: popUp 1s ease-in-out; 
 }
 
+
+.hide-arrow {
+    border: 2px solid #00ff95;
+    outline: none;
+    color: #333333;
+    appearance: none; /* Menghilangkan default arrow */
+    -webkit-appearance: none; /* Untuk browser Webkit (Safari, Chrome, dll.) */
+    -moz-appearance: none; /* Untuk browser Mozilla Firefox */
+    background-image: none; /* Menghilangkan background image (biasanya panah dropdown) */
+    /* Anda dapat menyesuaikan styling lebih lanjut sesuai kebutuhan */
+}
+
+
+
 @keyframes popUp {
     0% {
         opacity: 0;
@@ -17,3 +31,4 @@
     }
     
 }
+
