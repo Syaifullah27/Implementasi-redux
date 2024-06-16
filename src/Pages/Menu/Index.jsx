@@ -11,9 +11,12 @@ import "./menu.css"
 // eslint-disable-next-line react/prop-types
 const MenuPage = () => {
     const [datasMenu, setDatasMenu] = useState([])
+    const [page, setPage] = useState(1)
+
+
 
     const getMenu = () => {
-        axios.get(`https://api.mudoapi.tech/menus?perPage=15`)
+        axios.get(`https://api.mudoapi.tech/menus?perPage=10&page=${page}`)
             .then((res) => {
                 const data = res?.data?.data?.Data
                 setDatasMenu(data)
@@ -25,6 +28,30 @@ const MenuPage = () => {
     useEffect(() => {
         getMenu()
     }, [])
+
+
+    useEffect(() => {
+        getMenu()
+    }, [page])
+
+
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        })
+    }
+
+    const handleNext = () => {
+        setPage(page + 1)
+        scrollToTop()
+    }
+
+    const handlePrev = () => {
+        setPage(page - 1)
+        scrollToTop()
+    }
 
 
     const handleDelete = async (id) => {
@@ -195,6 +222,17 @@ const MenuPage = () => {
                             </div>
                         </div>
                     ))}
+                    <div className="w-9/12 mx-auto flex gap-5 justify-center">
+                        <button 
+                        className="underline font-medium text-xl text-[#f5f5f5] hover:text-[#00ff95] transition-all duration-500 ease-in-out"
+                        hidden={page === 1} 
+                        onClick={handlePrev}>Prev</button>
+                        <p className="text-[#f5f5f5] text-2xl "> {page}</p>
+                        <button 
+                        className="underline font-medium text-xl text-[#f5f5f5] hover:text-[#00ff95] transition-all duration-500 ease-in-out"
+                        onClick={handleNext} 
+                        hidden={datasMenu.length < 10}>Next</button>
+                    </div>
                 </div>
             </div>
 
