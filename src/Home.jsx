@@ -9,6 +9,7 @@ const HomePage = () => {
             <Link to={"/register"}>Register</Link>
             <Link to={"/menu"}>Menu</Link>
             <Link to={"/profile"}>Profile</Link>
+            <Link to={"/test"}>Test</Link>
             </div>
         </div>
     )

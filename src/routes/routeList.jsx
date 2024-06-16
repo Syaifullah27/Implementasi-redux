@@ -5,6 +5,7 @@ import MenuPage from "../Pages/Menu/Index";
 import RegisterPage from "../Pages/Register/Index";
 import ProtectedRoute from "./ProtectedRoute";
 import ProfilePage from "../Pages/profile/Index";
+import Test from "../Pages/test";
 
 export const routeList = createBrowserRouter([
     {
@@ -33,4 +34,8 @@ export const routeList = createBrowserRouter([
                 <ProfilePage />
 
     },
+    {
+        path: "/test",
+        element: <Test />
+    }
 ])
