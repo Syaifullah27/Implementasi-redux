@@ -87,7 +87,7 @@ const RegisterPage = () => {
             return <p className="text-red-500">{errorLogin}</p>
         }
         else if(isRegister) {
-            return <p className="text-green-500">Login Success</p>
+            return <p className="text-green-500">Register Success</p>
         }
         return null
     }

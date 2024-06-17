@@ -13,6 +13,7 @@ const MenuPage = () => {
     const [datasMenu, setDatasMenu] = useState([])
     const [page, setPage] = useState(1)
     const [elements, setElements] = useState([]);
+    // const [messageDelete, setMessageDelete] = useState("");
 
 
 
@@ -56,6 +57,7 @@ const MenuPage = () => {
     }
 
 
+
     const handleDelete = async (id) => {
         const token = localStorage.getItem("access_token")
         const config = {
@@ -74,8 +76,13 @@ const MenuPage = () => {
                 const res = await axios.delete(
                     `https://api.mudoapi.tech/menu/${id}`, config
                 )
+                console.log(res);
+                // setMessageDelete(res.data.message)
+                // console.log(messageDelete);
                 getMenu()
             } catch (error) {
+                // setMessageDelete(error.response.data.message)
+                // console.log(error.response.data.message);
                 console.log(error?.response);
             }
         }
@@ -101,19 +108,6 @@ const MenuPage = () => {
     }
 
 
-    // const alertDelete = () => {
-    //     return (
-    //     <>
-    //         <div className="fixed top-1/4 left-1/2 ml-[-90px] border-2 border-[#f5f5f5] px-4 py-2 rounded-md bg-red-500 text-[#f5f5f5] pop-up-delete">
-    //             <h1>Berhasil diHapus</h1>
-    //         </div>
-    //     </>
-    //     )
-    // }
-
-    // useEffect(() => {
-    //     alertDelete()
-    // }, [getMenu])
 
     const [name, setName] = useState("")
     const [type, setType] = useState("")

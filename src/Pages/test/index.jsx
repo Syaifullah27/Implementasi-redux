@@ -13,7 +13,7 @@ const Test = () =>  {
 
     return (
         <div>
-            <button onClick={handleClick} className="bg-[#00ff95]">Add Element</button>
+            <button onClick={handleClick} className="bg-red-500 rounded-lg hover:bg-red-600 p-2 text-[#f5f5f5] font-medium">Delete Btn</button>
             <div>
                 {elements}
             </div>

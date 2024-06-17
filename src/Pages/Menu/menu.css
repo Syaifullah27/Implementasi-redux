@@ -14,6 +14,10 @@
     /* Anda dapat menyesuaikan styling lebih lanjut sesuai kebutuhan */
 }
 
+textarea {
+    resize: none;
+}
+
 
 
 @keyframes popUp {
