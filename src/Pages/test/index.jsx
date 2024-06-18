@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../Menu/menu.css";
+import UploadImg from "./UploadImg";
+import InputYourImg from "./inputYourImg";
 
 const Test = () =>  {
     const [elements, setElements] = useState([]);
@@ -17,6 +19,8 @@ const Test = () =>  {
             <div>
                 {elements}
             </div>
+            <UploadImg />
+            <InputYourImg />
         </div>
     );
 }
