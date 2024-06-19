@@ -2,7 +2,7 @@ import { useState } from "react"
 import InputYourImg from "../test/inputYourImg"
 
 const AddMenu = () => {
-
+    const [successData, setSuccessData] = useState([]);
 
     const [name, setName] = useState("")
     const [type, setType] = useState("")
@@ -38,6 +38,12 @@ const AddMenu = () => {
         e.preventDefault()
         if(!name || !type || !desc || !price || !image || !nameImg){
             setErroData(true)
+            return
+        } else {
+            const newElement = <div key={successData.length} className="fixed top-1/4 left-1/2 ml-[-90px] border-2 border-[#f5f5f5] px-4 py-2 rounded-md bg-green-600 text-[#f5f5f5] pop-up-delete z-50">
+            <h1>Berhasil Ditambahkan</h1>
+        </div>;
+        setSuccessData([...successData, newElement]);
         }
             
         // console.log(name, type, desc, price, image, nameImg);
@@ -49,6 +55,7 @@ const AddMenu = () => {
         <div className="mx-auto pb-10">
                     <h1 className=" text-2xl pb-2 font-medium text-[#f5f5f5] text-center">Add Your Menu</h1>
                     <div className="flex  justify-center flex-wrap  items-center gap-5 pb-5  px-4 py-2 rounded-md  text-[#f5f5f5] max-sm:flex-col">
+                        {successData}
                         <div className="flex gap-2 flex-col max-sm:w-full">
                             <label className="text-[#f5f5f5] font-medium">Name</label>
                             <input
