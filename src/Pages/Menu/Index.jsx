@@ -70,7 +70,7 @@ const MenuPage = () => {
 
         if (confirmDelete) {
             const newElement = <div key={elements.length} className="fixed top-1/4 left-1/2 ml-[-90px] border-2 border-[#f5f5f5] px-4 py-2 rounded-md bg-red-500 text-[#f5f5f5] pop-up-delete">
-                <h1>Berhasil diHapus</h1>
+                <h1>Deleted Successfully</h1>
             </div>;
             setElements([...elements, newElement]);
             try {
@@ -190,7 +190,7 @@ const MenuPage = () => {
                         className="underline font-medium text-xl text-[#f5f5f5] hover:text-[#00ff95] transition-all duration-500 ease-in-out"
                         hidden={page === 1}
                         onClick={handlePrev}>Prev</button>
-                    <p className="text-[#f5f5f5] text-2xl "> {page}</p>
+                    <p className="text-[#f5f5f5] text-2xl " hidden={datasMenu.length === 0}> {page}</p>
                     <button
                         className="underline font-medium text-xl text-[#f5f5f5] hover:text-[#00ff95] transition-all duration-500 ease-in-out"
                         onClick={handleNext}

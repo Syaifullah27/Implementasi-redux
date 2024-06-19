@@ -41,7 +41,7 @@ const AddMenu = () => {
             return
         } else {
             const newElement = <div key={successData.length} className="fixed top-1/4 left-1/2 ml-[-90px] border-2 border-[#f5f5f5] px-4 py-2 rounded-md bg-green-600 text-[#f5f5f5] pop-up-delete z-50">
-            <h1>Berhasil Ditambahkan</h1>
+            <h1>Added Successfully</h1>
         </div>;
         setSuccessData([...successData, newElement]);
         }
