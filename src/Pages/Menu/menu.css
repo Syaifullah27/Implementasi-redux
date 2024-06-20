@@ -1,5 +1,6 @@
 .pop-up-delete {
     animation: popUp 2.5s ease-in-out forwards ; 
+    z-index: 9999;
 }
 
 
@@ -14,11 +15,15 @@
     /* Anda dapat menyesuaikan styling lebih lanjut sesuai kebutuhan */
 }
 
+
+.fade-in-out {
+    opacity: 0; /* Mulai dengan elemen yang tidak terlihat */
+    animation: fadeInOut 5s linear forwards; /* Animasi 5 detik */
+}
+
 textarea {
     resize: none;
 }
-
-
 
 @keyframes popUp {
     0% {
@@ -42,5 +47,20 @@ textarea {
         transform: scale(0);
     }
     
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0; /* Awal tidak terlihat */
+    }
+    25% {
+        opacity: 1; /* Menjadi terlihat */
+    }
+    75% {
+        opacity: 1; /* Tetap terlihat */
+    }
+    100% {
+        opacity: 0; /* Menjadi tidak terlihat lagi */
+    }
 }
 

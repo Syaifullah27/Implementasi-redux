@@ -158,7 +158,7 @@ const MenuPage = () => {
                     {elements}
                 </div>
 
-                <AddMenu />
+                <AddMenu getMenu={getMenu}/>
 
 
                 <div className="w-9/12 mx-auto">
@@ -178,7 +178,10 @@ const MenuPage = () => {
                             <img src={`${data.imageUrl}`} alt="" width={2010} className=" h-72 rounded-xl max-sm:w-full max-sm:h-40" />
                             <p className="text-center font-medium text-xl pt-2">{data.name.substring(0, 13)}</p>
                             <h2 className="text-center font-medium text-sm italic">Rp. {data.price} ribu</h2>
-                            <div className="flex justify-center pt-3">
+                            <div className="flex justify-center pt-3 gap-2">
+                                <Link to={`/menu-edit/${data.id}`}>
+                                    <button className="bg-orange-500 rounded-lg p-2 px-4 text-[#f5f5f5] hover:bg-orange-600">Edit</button>
+                                </Link>
                                 <button onClick={() => handleDelete(data.id)}
                                     className="bg-red-500 rounded-lg p-2 text-[#f5f5f5] hover:bg-red-600">Delete</button>
                             </div>

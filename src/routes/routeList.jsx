@@ -6,6 +6,7 @@ import RegisterPage from "../Pages/Register/Index";
 import ProtectedRoute from "./ProtectedRoute";
 import ProfilePage from "../Pages/profile/Index";
 import Test from "../Pages/test";
+import EditMenuPage from "../Pages/Menu/EditMenu";
 
 export const routeList = createBrowserRouter([
     {
@@ -29,10 +30,17 @@ export const routeList = createBrowserRouter([
         ),
     },
     {
+        path: "/menu-edit/:id",
+        element: (
+            <ProtectedRoute>
+                <EditMenuPage />
+            </ProtectedRoute>
+        ),
+    },
+    {
         path: "/profile",
         element:
                 <ProfilePage />
-
     },
     {
         path: "/test",
