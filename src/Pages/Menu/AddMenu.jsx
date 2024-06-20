@@ -104,8 +104,7 @@ const AddMenu = ({getMenu}) => {
                             <input
                                 value={name}
                                 onChange={handleName}
-                                className={` w-56 h-10 bg-gray-200 text-[#333333] py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-400 outline-none ${name ? "hide-arrow" : ""} max-sm:w-full
-                                ${message ? "border-2 border-red-500" : ""}`}
+                                className={` w-56 h-10 bg-gray-200 text-[#333333] py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-400 outline-none ${name ? "hide-arrow" : ""} max-sm:w-full`}
                                 placeholder="add your favorite menu " />
                         </div>
                         <div className="flex gap-2 flex-col max-sm:w-full">
@@ -113,8 +112,7 @@ const AddMenu = ({getMenu}) => {
                             <textarea
                                 value={desc}
                                 onChange={handleDesc}
-                                className={`pt-2 w-56 h-10 bg-gray-200 text-[#333333] py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-400 outline-none ${desc ? "hide-arrow" : ""} max-sm:w-full
-                                ${message ? "border-2 border-red-500" : ""}`}
+                                className={`pt-2 w-56 h-10 bg-gray-200 text-[#333333] py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-400 outline-none ${desc ? "hide-arrow" : ""} max-sm:w-full`}
                                 placeholder="Describe your favorite menu " />
                         </div>
                         <div className="flex gap-2 flex-col max-sm:w-full">
@@ -123,8 +121,7 @@ const AddMenu = ({getMenu}) => {
                                 value={type}
                                 onChange={handleType}
                                 defaultValue={""}
-                                className={`w-56 h-10 bg-gray-200 text-gray-400 py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-300" ${type ? "hide-arrow" : ""} max-sm:w-full
-                                ${message ? "border-2 border-red-500" : ""}`}>
+                                className={`w-56 h-10 bg-gray-200 text-gray-400 py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-300" ${type ? "hide-arrow" : ""} max-sm:w-full`}>
                                 <option value="" disabled hidden>Type</option>
                                 <option value="beverage" className="text-[#333333]">beverage</option>
                                 <option value="main-dish" className="text-[#333333]">main-dish</option>
@@ -136,8 +133,7 @@ const AddMenu = ({getMenu}) => {
                                 value={price}
                                 onChange={handlePrice}
                                 type="number" placeholder="Price of your favorite menu"
-                                className={`w-56 h-10 bg-gray-200 text-[#333333] py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-400 outline-none ${price ? "hide-arrow" : ""} max-sm:w-full
-                                ${message ? "border-2 border-red-500" : ""}`} />
+                                className={`w-56 h-10 bg-gray-200 text-[#333333] py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-400 outline-none ${price ? "hide-arrow" : ""} max-sm:w-full`} />
                         </div>
                         {/* <div className="flex gap-2 flex-col max-sm:w-full">
                             <label className="text-[#f5f5f5] font-medium max-sm:ml-0 ">Image</label>
@@ -148,8 +144,7 @@ const AddMenu = ({getMenu}) => {
                             <input
                                 value={urlImg}
                                 onChange={handleUrlImg}
-                                className={` w-56 h-10 bg-gray-200 text-[#333333] py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-400 outline-none ${urlImg ? "hide-arrow" : ""} max-sm:w-full
-                                ${message ? "border-2 border-red-500" : ""}`}
+                                className={` w-56 h-10 bg-gray-200 text-[#333333] py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-400 outline-none ${urlImg ? "hide-arrow" : ""} max-sm:w-full`}
                                 placeholder="add img menu " />
                         </div>
 
