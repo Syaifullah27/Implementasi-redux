@@ -13,7 +13,6 @@ const AddMenu = ({getMenu}) => {
     const [desc, setDesc] = useState("")
     const [price, setPrice] = useState()
     const [urlImg, setUrlImg] = useState("")
-    const [erroData, setErroData] = useState(false)
     const [message, setMessage] = useState("")
     // const [image, setImage] = useState("")
     // const [nameImg, setNameImg] = useState("")
@@ -83,15 +82,7 @@ const AddMenu = ({getMenu}) => {
     }
 
 
-    const submitDataMenu = (e) => {
-        e.preventDefault()
-        if(name=== "" || type === "" || desc === "" || price === "" || urlImg === "") {
-            setErroData(true)
-            return
-        }
-            
-        // console.log(name, type, desc, price, image, nameImg);
-    }
+    
 
 
 
@@ -114,7 +105,7 @@ const AddMenu = ({getMenu}) => {
                                 value={name}
                                 onChange={handleName}
                                 className={` w-56 h-10 bg-gray-200 text-[#333333] py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-400 outline-none ${name ? "hide-arrow" : ""} max-sm:w-full
-                                ${erroData ? "border-2 border-red-500" : ""}`}
+                                ${message ? "border-2 border-red-500" : ""}`}
                                 placeholder="add your favorite menu " />
                         </div>
                         <div className="flex gap-2 flex-col max-sm:w-full">
@@ -123,7 +114,7 @@ const AddMenu = ({getMenu}) => {
                                 value={desc}
                                 onChange={handleDesc}
                                 className={`pt-2 w-56 h-10 bg-gray-200 text-[#333333] py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-400 outline-none ${desc ? "hide-arrow" : ""} max-sm:w-full
-                                ${erroData ? "border-2 border-red-500" : ""}`}
+                                ${message ? "border-2 border-red-500" : ""}`}
                                 placeholder="Describe your favorite menu " />
                         </div>
                         <div className="flex gap-2 flex-col max-sm:w-full">
@@ -133,7 +124,7 @@ const AddMenu = ({getMenu}) => {
                                 onChange={handleType}
                                 defaultValue={""}
                                 className={`w-56 h-10 bg-gray-200 text-gray-400 py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-300" ${type ? "hide-arrow" : ""} max-sm:w-full
-                                ${erroData ? "border-2 border-red-500" : ""}`}>
+                                ${message ? "border-2 border-red-500" : ""}`}>
                                 <option value="" disabled hidden>Type</option>
                                 <option value="beverage" className="text-[#333333]">beverage</option>
                                 <option value="main-dish" className="text-[#333333]">main-dish</option>
@@ -146,7 +137,7 @@ const AddMenu = ({getMenu}) => {
                                 onChange={handlePrice}
                                 type="number" placeholder="Price of your favorite menu"
                                 className={`w-56 h-10 bg-gray-200 text-[#333333] py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-400 outline-none ${price ? "hide-arrow" : ""} max-sm:w-full
-                                ${erroData ? "border-2 border-red-500" : ""}`} />
+                                ${message ? "border-2 border-red-500" : ""}`} />
                         </div>
                         {/* <div className="flex gap-2 flex-col max-sm:w-full">
                             <label className="text-[#f5f5f5] font-medium max-sm:ml-0 ">Image</label>
@@ -158,13 +149,15 @@ const AddMenu = ({getMenu}) => {
                                 value={urlImg}
                                 onChange={handleUrlImg}
                                 className={` w-56 h-10 bg-gray-200 text-[#333333] py-2 font-medium rounded-xl placeholder:text-sm  pl-2 placeholder:text-gray-400 outline-none ${urlImg ? "hide-arrow" : ""} max-sm:w-full
-                                ${erroData ? "border-2 border-red-500" : ""}`}
+                                ${message ? "border-2 border-red-500" : ""}`}
                                 placeholder="add img menu " />
                         </div>
 
                     </div>
                         <div className=" flex justify-center items-center ">
-                            <button onClick={handleAddDataMenu || submitDataMenu}
+                            <button 
+                            type="submit"
+                            onClick={handleAddDataMenu}
                             className="w-24 h-10 mt-7 rounded-xl bg-[#f5f5f5] text-[#333333] py-2 font-medium hover:bg-[#00ff95] hover:text-[#f5f5f5] transition-all duration-500 ease-in-out max-sm:w-56">Add</button>
                         </div>
                 </div>
