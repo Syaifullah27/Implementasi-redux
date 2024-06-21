@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import "./menu.css"
 import AddMenu from "./AddMenu";
+import { formatRupiah } from "../../utils/formatData/formatIDR";
 // import { Navigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
@@ -177,7 +178,7 @@ const MenuPage = () => {
                             className="bg-[#f5f5f5] p-4 w-[210px] rounded-xl shadow-slate-950] shadow-2xl max-sm:w-52 max-sm:h-72 max-sm:p-2">
                             <img src={`${data.imageUrl}`} alt="" width={2010} className=" h-72 rounded-xl max-sm:w-full max-sm:h-40" />
                             <p className="text-center font-medium text-xl pt-2">{data.name.substring(0, 13)}</p>
-                            <h2 className="text-center font-medium text-sm italic">Rp. {data.price} ribu</h2>
+                            <h2 className="text-center font-medium text-sm italic">{formatRupiah(data.price)} ribu</h2>
                             <div className="flex justify-center pt-3 gap-2">
                                 <Link to={`/menu-edit/${data.id}`}>
                                     <button className="bg-orange-500 rounded-lg p-2 px-4 text-[#f5f5f5] hover:bg-orange-600">Edit</button>
